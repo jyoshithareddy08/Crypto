@@ -1,63 +1,179 @@
 # August Cipher with Hash Function
----
 
-##  Features
+## Overview
 
-* Encryption using August Cipher (shift = +1)
-* Decryption using reverse shift (shift = -1)
-* Custom hash function (no external libraries used)
-* Simple and beginner-friendly implementation
+This project implements the **August Cipher** (a Caesar Cipher with shift = 1) along with a **custom hash function**.
 
----
+It demonstrates:
 
-## How It Works
-
-### 1. Encryption
-
-Each alphabet character is shifted forward by 1:
-
-* `a → b`
-* `z → a`
-
-### 2. Decryption
-
-Each character is shifted backward by 1:
-
-* `b → a`
-* `a → z`
-
-### 3. Hash Function
-
-A custom hash is generated using:
-
-* ASCII values of characters
-* Multiplication and modulus operation
-* hash_value = (hash_value * 31 + ord(char)) % 100000
+* Encryption of plaintext
+* Decryption back to original text
+* Hash generation for data integrity
 
 ---
 
+## Theory
 
-Input:
+### 1. August Cipher
+
+The August Cipher is a substitution cipher where:
+
+* Encryption: Each alphabet is shifted **forward by 1**
+* Decryption: Each alphabet is shifted **backward by 1** 
+
+#### Example:
+
+* a → b
+* z → a 
+
+---
+
+### 2. Hash Function
+
+A **hash function** converts input text into a fixed-size value.
+
+We use a **custom polynomial rolling hash**:
+
+```
+hash_value = (hash_value * 31 + ord(char)) % 100000
+```
+
+#### Why this approach?
+
+* Efficient and fast
+* Uses prime multiplier (31) to reduce collisions
+
+
+---
+
+## How to Run
+
+### Step 1: Clone Repository
+
+```bash
+git clone <your-repo-link>
+cd <repo-folder>
+```
+
+### Step 2: Run Program
+
+```bash
+python august_cipher.py
+```
+
+### Step 3: Provide Input
+
+Enter any text when prompted.
+
+---
+
+## Code Components
+
+* `encrypt(text)` → Performs encryption
+* `decrypt(text)` → Performs decryption
+* `simple_hash(text)` → Generates hash value
+* Main program → Executes full flow
+
+---
+
+## Worked Examples
+
+### Example 1
+
+**Plaintext:**
 
 ```
 hello
 ```
 
-Output:
+**Key:**
 
 ```
-Encrypted Text : ifmmp
-Decrypted Text : hello
-Hash Value     : 99123
+Shift = +1
 ```
 
+**Ciphertext:**
+
+```
+ifmmp
+```
+
+**Decrypted Text:**
+
+```
+hello
+```
+
+**Hash Output:**
+
+```
+99114
+```
+
+---
+
+### Example 2
+
+**Plaintext:**
+
+```
+ABC xyz
+```
+
+**Key:**
+
+```
+Shift = +1
+```
+
+**Ciphertext:**
+
+```
+BCD yza
+```
+
+**Decrypted Text:**
+
+```
+ABC xyz
+```
+
+**Hash Output:**
+
+```
+80285
+```
+
+---
+
+## Test Script (Round Trip)
+
+The program verifies correctness using:
+
+```
+Plaintext → Encrypt → Hash → Decrypt → Original
+```
+
+✔ Ensures:
+
+* Encryption works correctly
+* Decryption restores original text
+* Hash remains consistent
+
+---
+
+## ⏱️ Time Complexity
+
+* Encryption: O(n)
+* Decryption: O(n)
+* Hashing: O(n)
+
+Where **n = length of input**
 
 ---
 
 
 ## Author
 
-Jyoshitha Reddy
+**Jyoshitha Reddy**
 (23011102060)
-
----
