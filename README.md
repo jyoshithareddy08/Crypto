@@ -80,69 +80,11 @@ Enter any text when prompted.
 
 ### Example 1
 
-**Plaintext:**
-
-```
-hello
-```
-
-**Key:**
-
-```
-Shift = +1
-```
-
-**Ciphertext:**
-
-```
-ifmmp
-```
-
-**Decrypted Text:**
-
-```
-hello
-```
-
-**Hash Output:**
-
-```
-99114
-```
-
----
+<img width="368" height="276" alt="image" src="https://github.com/user-attachments/assets/fa74d13c-4a67-41dd-a462-6538af97ec0f" />
 
 ### Example 2
 
-**Plaintext:**
-
-```
-ABC xyz
-```
-
-**Key:**
-
-```
-Shift = +1
-```
-
-**Ciphertext:**
-
-```
-BCD yza
-```
-
-**Decrypted Text:**
-
-```
-ABC xyz
-```
-
-**Hash Output:**
-
-```
-80285
-```
+<img width="387" height="251" alt="image" src="https://github.com/user-attachments/assets/226902ca-6abb-4d60-8ca9-b2b42686b0c5" />
 
 ---
 
